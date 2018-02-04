@@ -1,0 +1,17 @@
+switchport trunk allowed vlan 1,3,5,11,25,111,23,8
+
+switchport trunk allowed vlan 1,11,5,8,111,100,77,75
+
+switchport trunk allowed vlan 5,111,77,88,44,8,112,11,8
+
+speed 1000
+
+switchport access vlan 10
+
+switchport trunk allowed vlan 4,8,5,8,11,123,25
+
+duplex full
+
+switchport mode auto
+
+switchport nonegotiate
