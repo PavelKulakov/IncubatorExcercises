@@ -1,4 +1,4 @@
-from itertools import chain
+from itertools import chain                                                         #importing all necessary modules
 import re
 import sys
 
@@ -16,19 +16,19 @@ with open("commands.txt", "r") as commands:                                     
 
     common_vlans = list(set.intersection(*trunk_list))                              #using set.intersection method to find common vlans and transforming common_vlans variable back to list type               #
     unique_vlans = []
-    for each_list in trunk_list:                                                    #'for' loop is used to handle each element in trunk_list
-        list_union = list(chain(*trunk_list))                                       #creating a big list instead of pack of small lists
-        for x in each_list:
-            list_union.remove(x)
-        set_union = set(list_union)
-        unique_vlans.append(set(each_list) - set_union)
+    for each_element in trunk_list:                                                 #'for' loop is used to handle each element in trunk_list
+        list_union = list(chain(*trunk_list))                                       #defining a big list instead of pack of small lists
+        for x in each_element:                                                      #'for' loop is used to handle every single vlan number in each element of trunk_list
+            list_union.remove(x)                                                    #removing redundant vlan numbers
+        set_union = set(list_union)                                                 #transforming the result of removal into a set
+        unique_vlans.append(set(each_element) - set_union)                          #finding the difference between this result and an element in the initial list and appending it to a new list
 
-    unique_vlans = chain(*unique_vlans)                                             #creating a big list instead of pack of small lists
+    unique_vlans = chain(*unique_vlans)                                             #creating a big continious list instead of pack of small lists
 
     unique_vlans = [int(x) for x in unique_vlans]                                   #transforming list elements in unique_vlans and common_vlans
     common_vlans = [int(x) for x in common_vlans]                                   #lists to int type (for correct sorted() function usage)
 
-    print("List_1 =", sorted(common_vlans))                                         #printing the results sorted in ascending order
+    print("List_1 =", sorted(common_vlans))                                         #printing the results in ascending order
     print("List_2 =", sorted(unique_vlans))
 
 
