@@ -1,5 +1,6 @@
 from itertools import chain
-
+import re
+import sys
 
 with open("commands.txt", "r") as commands:                                         #opening the file in read mode
     commands_var = commands.readlines()                                             #reading the file using built-in readlines() method
