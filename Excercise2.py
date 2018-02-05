@@ -1,13 +1,37 @@
-#opening the commands.txt file for reading
+from itertools import chain
 
-with open("commands.txt", "r") as commands:
-    commands_var = commands.readlines()
-    trunk_list = []
-    for each_element in commands_var:
-        if each_element.startswith("switchport trunk allowed vlan"):
-            trunk_list.append(each_element.strip("switchport trunk allowed vlan"))
 
-chunks = [trunk_list[x:x+1] for x in range(0, len(trunk_list))]
+with open("commands.txt", "r") as commands:                                         #opening the file in read mode
+    commands_var = commands.readlines()                                             #reading the file using built-in readlines() method
+    trunk_list = []                                                                 #defining a container for all 'switchport trunk' lines
+
+    for each_element in commands_var:                                               #'for' loop is used to go over all lines in a file
+        if each_element.startswith("switchport trunk allowed vlan"):                #if statement to work with only desired 'switchport..' commands
+            each_element = each_element.strip("switchport trunk allowed vlan,\n")   #cutting the 'switchport trunk allowed vlan' text part
+            trunk_list.append(set(each_element.split(",")))                         #appending every line to a big list and making each line a set for future intersection usage
+
+    if re.search("switchport trunk allowed vlan", "".join(commands_var)) is None:   #if statement in case there are no 'switchport trunk..' lines in a file
+            sys.exit("Line 'switchport trunk allowed vlan' was not found")
+
+    common_vlans = list(set.intersection(*trunk_list))                              #using set.intersection method to find common vlans and transforming common_vlans variable back to list type               #
+    unique_vlans = []
+    for each_list in trunk_list:                                                    #'for' loop is used to handle each element in trunk_list
+        list_union = list(chain(*trunk_list))                                       #creating a big list instead of pack of small lists
+        for x in each_list:
+            list_union.remove(x)
+        set_union = set(list_union)
+        unique_vlans.append(set(each_list) - set_union)
+
+    unique_vlans = chain(*unique_vlans)                                             #creating a big list instead of pack of small lists
+
+    unique_vlans = [int(x) for x in unique_vlans]                                   #transforming list elements in unique_vlans and common_vlans
+    common_vlans = [int(x) for x in common_vlans]                                   #lists to int type (for correct sorted() function usage)
+
+    print("List_1 =", sorted(common_vlans))                                         #printing the results sorted in ascending order
+    print("List_2 =", sorted(unique_vlans))
+
+
+
 
 
 
