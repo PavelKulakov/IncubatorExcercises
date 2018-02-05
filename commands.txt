@@ -10,8 +10,12 @@ switchport access vlan 10
 
 switchport trunk allowed vlan 4,8,5,8,11,123,25
 
+switchport trunk allowed vlan 7,5,18,11
+
 duplex full
 
 switchport mode auto
 
 switchport nonegotiate
+
+switchport trunk allowed vlan 33,17,5,8,11,35,49
