@@ -1,0 +1,43 @@
+
+Router#show ip route 
+
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 10.254.0.1 to network 0.0.0.0
+
+O E1     10.126.8.33/32 [110/65] via 10.254.51.26, 6d08h, Port-channel1
+O E1     10.126.8.153/32 [110/65] via 10.254.51.26, 6d08h, Port-channel1
+O        10.126.40.32/29 [110/35] via 10.254.51.26, 6d08h, Port-channel1
+O E1     10.126.40.33/32 [110/45] via 10.254.51.26, 0:03:44, Port-channel1
+O E1     10.132.108.1/32 [110/65] via 10.254.51.26, 6d08h, Port-channel1
+O E1     10.132.108.2/32 [110/65] via 10.254.51.26, 6d08h, Port-channel1
+O E1     10.132.108.17/32 [110/65] via 10.254.51.26, 0:02:44, Port-channel1
+O E1     10.132.108.18/32 [110/65] via 10.254.51.26, 6d08h, Port-channel1
+O        10.132.108.32/31 [110/50] via 10.254.51.26, 6d00h, Port-channel1
+O E1     10.132.108.33/32 [110/65] via 10.254.51.26, 6d08h, Port-channel1
+O        10.132.108.34/31 [110/50] via 10.254.51.26, 6d00h, Port-channel1
+O E1     10.132.108.35/32 [110/65] via 10.254.51.26, 6d08h, Port-channel1
+B        10.132.114.4/32 [200/0] via 10.254.135.253, 0:10:35, GigabitEthernet0/1
+B        10.133.222.96/28 [200/0] via 10.254.90.9, 6d08h, GigabitEthernet0/2
+O E2     10.254.50.61/32 [110/20] via 10.254.51.26, 6d08h, Port-channel1
+O E2     10.254.50.62/32 [110/20] via 10.254.51.26, 6d08h, Port-channel1
+L        10.254.51.27/32 is directly connected, Port-channel1
+B        10.254.135.48/32 [200/4294967294] via 10.254.135.247, 6d08h
+B        10.254.135.52/32 [200/4294967294] via 10.254.135.247, 6d08h
+O IA     10.254.158.172/31 [110/50145] via 10.254.51.26, 6d00h, Port-channel1
+O IA     10.254.158.176/31 [110/50145] via 10.254.51.26, 6d00h, Port-channel1
+S        172.17.20.2 [1/0] via 10.254.13.67, FastEthernet0/1
+S        172.17.20.3 [1/0] via 10.254.13.7, FastEthernet0/1
+S        172.17.20.4 [1/0] via 10.254.13.40, FastEthernet0/1
+S        172.17.20.5 [1/0] via 10.254.13.39, FastEthernet0/1
+C        10.254.50.39/32 is directly connected, Loopback0
+C        10.254.51.26/31 is directly connected, Port-channel1
+L        10.254.51.27/32 is directly connected, Port-channel1
