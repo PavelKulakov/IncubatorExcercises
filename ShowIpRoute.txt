@@ -1,5 +1,5 @@
 
-Router#show ip route 
+Router#show ip route
 
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
        D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 

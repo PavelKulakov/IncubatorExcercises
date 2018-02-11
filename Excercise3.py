@@ -1,6 +1,8 @@
 import re
 from itertools import islice
 
+"Creating list objects for future usage"""
+
 protocol = []
 prefix = []
 admetric = []
@@ -8,18 +10,18 @@ nexthop = []
 lastupdate = []
 outintf = []
 
+"""Opening a RIB text file in read mode"""
 
 with open("ShowIpRoute.txt", "r") as rib:
-    for line in islice(rib, 12, None):
-        protoregex = re.findall("^(O E1|O E2|O IA|O N1|O N2|O|B|D|L|C|S|EX|i|su)", line)
-        prefregex = re.findall("(?:[0-9]{1,3}\.){3}[0-9]{1,3}|$", line)[0]
-        nhregex = re.findall("(?:[0-9]{1,3}\.){3}[0-9]{1,3}|$", line)[1]
-        adregex = re.findall("\[(\d+\/\d+)\]|$", line)[0]
-        updregex = re.findall("((?:\d\w\d+\w)|(?:\d+\:\d+\:\d+))|$", line)[0]
-        prefix.append(prefregex)
-        nexthop.append(nhregex)
-        admetric.append(adregex)
-        lastupdate.append(updregex)
+
+    """We create 'for' loop which reads file from 16th line (beginning of RIB itself), using itertools islice method.
+    Then we create separate regex values for each corresponding meaning (Protocol, Prefix, Next-hop, etc.)
+    Firstly, we handle protocol regex values to convert dynamic protocol abbreviations (O, OE1, B, D, etc)
+    into actual protocol names and also to filter local, connected and static routes. Then, we handle other regexes,
+    appending them to corresponding list objects created earlier"""
+
+    for line in islice(rib, 15, None):
+        protoregex = re.findall("^(O E1|O E2|O IA|O N1|O N2|O|B|D|EX|i|su|R|L|S|C)", line)
         if "O" in protoregex:
             protocol.append("OSPF")
         elif "O E1" in protoregex:
@@ -36,45 +38,37 @@ with open("ShowIpRoute.txt", "r") as rib:
             protocol.append("BGP")
         elif "D" in protoregex:
             protocol.append("EIGRP")
-        elif "L" in protoregex:
-            protocol.append("local")
-        elif "C" in protoregex:
-            protocol.append("connected")
-        elif "S" in protoregex:
-            protocol.append("static")
         elif "EX" in protoregex:
             protocol.append("EIGRP external")
         elif "i" in protoregex:
             protocol.append("IS-IS")
         elif "su" in protoregex:
             protocol.append("IS-IS summary")
+        elif "R" in protoregex:
+            protocol.append("RIP")
+        elif "L" or "C" or "S" in protoregex:
+            continue
+        prefregex = re.findall("(?:[0-9]{1,3}\.){3}[0-9]{1,3}|$", line)[0]
+        nhregex = re.findall("(?:[0-9]{1,3}\.){3}[0-9]{1,3}|$", line)[1]
+        adregex = re.findall("\[(\d+\/\d+)\]|$", line)[0]
+        updregex = re.findall("((?:\d+d\d+h)|(?:\d+\:\d+\:\d+))|$", line)[0]
+        intfregex = re.findall("((?:\w*Ethernet\d(?:\/*\d*){0,3})|(?:Port-channel\d*)|(?:Serial\d(?:\/*\d*){0,3})|(?:Dialer\d*)|(?:Cellular\d*)(?:Tunnel\d*)|(?:Null0))|$", line)[0]
+        prefix.append(prefregex)
+        nexthop.append(nhregex)
+        admetric.append(adregex)
+        lastupdate.append(updregex)
+        outintf.append(intfregex)
 
-print(protocol)
-print(prefix)
-print(admetric)
-print(nexthop)
-print(lastupdate)
+"""Creating a separate file for outputs to improve their readability. Appending each value to this file using print function in 'for' loop"""
 
-"""for line in islice(rib, 12, None):
-        print(line)
-        print("\nProtocol: ", protocol[0])
-        print("\nPrefix: ", prefix[0])
-        print("\nNext-Hop: ", nexthop[0])"""
-
-
-
-
-"""for each_route in protocol:
-    print("\nProtocol: ", each_route)
-for each_route in prefix:
-    print("\nPrefix: ", each_route[0])
-for each_route in nexthop:
-    print("\nNext-Hop: ", each_route[0])
-"""
-"""print("AD/Metric:\n")
-print("Next-Hop:\n")
-print("Last update:\n")
-print("Outbound interface:\n")"""
-
+with open("RIB_output.txt", "w") as rib_output:
+    for x in range(0, len(protocol)):
+        print("Protocol: ", protocol[x], file=rib_output)
+        print("Prefix: ", prefix[x], file=rib_output)
+        print("AD/Metric: ", admetric[x], file=rib_output)
+        print("Next-Hop: ", nexthop[x], file=rib_output)
+        print("Last update: ", lastupdate[x], file=rib_output)
+        print("Outbound interface: ", outintf[x],file=rib_output)
+        print("\n==================================================\n", file=rib_output)
 
 

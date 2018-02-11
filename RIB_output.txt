@@ -1,0 +1,180 @@
+Protocol:  OSPF external type 1
+Prefix:  10.126.8.33
+AD/Metric:  110/65
+Next-Hop:  10.254.51.26
+Last update:  6d08h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF external type 1
+Prefix:  10.126.8.153
+AD/Metric:  110/65
+Next-Hop:  10.254.51.26
+Last update:  6d08h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF
+Prefix:  10.126.40.32
+AD/Metric:  110/35
+Next-Hop:  10.254.51.26
+Last update:  6d08h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF external type 1
+Prefix:  10.126.40.33
+AD/Metric:  110/45
+Next-Hop:  10.254.51.26
+Last update:  0:03:44
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF external type 1
+Prefix:  10.132.108.1
+AD/Metric:  110/65
+Next-Hop:  10.254.51.26
+Last update:  6d08h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF external type 1
+Prefix:  10.132.108.2
+AD/Metric:  110/65
+Next-Hop:  10.254.51.26
+Last update:  6d08h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF external type 1
+Prefix:  10.132.108.17
+AD/Metric:  110/65
+Next-Hop:  10.254.51.26
+Last update:  0:02:44
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF external type 1
+Prefix:  10.132.108.18
+AD/Metric:  110/65
+Next-Hop:  10.254.51.26
+Last update:  6d08h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF
+Prefix:  10.132.108.32
+AD/Metric:  110/50
+Next-Hop:  10.254.51.26
+Last update:  6d00h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF external type 1
+Prefix:  10.132.108.33
+AD/Metric:  110/65
+Next-Hop:  10.254.51.26
+Last update:  6d08h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF
+Prefix:  10.132.108.34
+AD/Metric:  110/50
+Next-Hop:  10.254.51.26
+Last update:  6d00h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF external type 1
+Prefix:  10.132.108.35
+AD/Metric:  110/65
+Next-Hop:  10.254.51.26
+Last update:  6d08h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  BGP
+Prefix:  10.132.114.4
+AD/Metric:  200/0
+Next-Hop:  10.254.135.253
+Last update:  0:10:35
+Outbound interface:  GigabitEthernet0/1
+
+==================================================
+
+Protocol:  BGP
+Prefix:  10.133.222.96
+AD/Metric:  200/0
+Next-Hop:  10.254.90.9
+Last update:  6d08h
+Outbound interface:  GigabitEthernet0/2
+
+==================================================
+
+Protocol:  OSPF external type 2
+Prefix:  10.254.50.61
+AD/Metric:  110/20
+Next-Hop:  10.254.51.26
+Last update:  6d08h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF external type 2
+Prefix:  10.254.50.62
+AD/Metric:  110/20
+Next-Hop:  10.254.51.26
+Last update:  6d08h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  BGP
+Prefix:  10.254.135.48
+AD/Metric:  200/4294967294
+Next-Hop:  10.254.135.247
+Last update:  6d08h
+Outbound interface:  
+
+==================================================
+
+Protocol:  BGP
+Prefix:  10.254.135.52
+AD/Metric:  200/4294967294
+Next-Hop:  10.254.135.247
+Last update:  6d08h
+Outbound interface:  
+
+==================================================
+
+Protocol:  OSPF inter-area
+Prefix:  10.254.158.172
+AD/Metric:  110/50145
+Next-Hop:  10.254.51.26
+Last update:  6d00h
+Outbound interface:  Port-channel1
+
+==================================================
+
+Protocol:  OSPF inter-area
+Prefix:  10.254.158.176
+AD/Metric:  110/50145
+Next-Hop:  10.254.51.26
+Last update:  6d00h
+Outbound interface:  Port-channel1
+
+==================================================
+
