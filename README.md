@@ -1,4 +1,5 @@
-You can find below initial conditions of the excercises presented in the repository:
+You can find below initial conditions for the excercises presented in the current repository:
+
 
 
 
@@ -15,7 +16,7 @@ Check the validity of the subnet mask. If subnet mask is not in decimal format o
 The program should present the ip address in the binary formal like in example below (each number in decimal ip address has it’s own row of width 10 symbols).
 Your program should print the network address and broadcast address for the given ip
 
-======================================================================================
+=================================================================================
 
 Exercise 2:
 
@@ -28,7 +29,7 @@ Your program should:
 2. print list of all unique vlans, i.e for any vlan number from this list there should be only one command in the commands.txt file containing this vlan.
 3. the output lists should not contains duplicated entries and should be sorted in ascending order.
 
-======================================================================================
+=================================================================================
 
 Excercise3:
 
@@ -41,7 +42,7 @@ Next-Hop:
 Last update:	
 Outbound interface:
 
-======================================================================================
+=================================================================================
 
 Exercise 4:
 
@@ -71,4 +72,4 @@ Your program should ask:
 For access interfaces, script should request “Enter VLAN number”. For trunk interface, script should request list of allowed vlans “Enter allowed VLANs:”.
 Your script should print the configuration depends on the input.
 
-======================================================================================
+=================================================================================
